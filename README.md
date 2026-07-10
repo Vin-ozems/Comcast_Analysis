@@ -35,5 +35,3 @@ Data cleaning confirmed no duplicate records and no missing values across all fi
 - CTEs for multi-step aggregation
 - Triggers and stored procedures for workflow automation
 
-## Notes
-- The "repeat complainers" query groups by `CustomerID` (aliased from `ID`), but `Id` is an auto-increment primary key — meaning each row already has a unique ID, so grouping by it will never return more than 1 row per group. This query likely needs to group by an actual customer identifier (e.g. name or a dedicated customer ID field) rather than the row's own primary key, assuming one exists elsewhere in the source data.
