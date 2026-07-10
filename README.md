@@ -25,10 +25,6 @@ Data cleaning confirmed no duplicate records and no missing values across all fi
 - **Top 10 cities by complaint volume** were ranked using a window function (`ROW_NUMBER()`), giving a clear priority list for regional service investigation.
 - **Peak complaint month identified**: using a two-step CTE, the month with the single highest complaint volume was isolated.
 
-## Recommendation / Tool
-- **Automated status verification**: A trigger (`trg_UpdateStatusOnProxy`) automatically updates a complaint's status to "Verified" whenever a complaint is marked "Solved" and its Proxy field is "No" — removing a manual verification step from the resolution workflow and ensuring consistent status tracking without extra staff intervention.
-- **On-demand city ranking**: A stored procedure (`top_city()`) returns the top complaint-generating cities ranked by volume, ready to be called whenever an updated view is needed (e.g. for a weekly ops review) without rewriting the query each time.
-
 ## Tools & Technology
 - MySQL
 - Window functions (`ROW_NUMBER()`) for ranking
